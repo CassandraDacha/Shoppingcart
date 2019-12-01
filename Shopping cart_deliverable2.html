@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<!--Brief summary of all the links to the documents used to create the web page-->
+  <meta name="description" content="Shopping cart">
+  <meta charset="utf-8">
+  <meta name="keywords" content="HTML,CSS,Bootstrap,JavaScript">
+  <!-- -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Shopping cart.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+button {
+ background-color: #4CAF50;
+  border: solid ;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+   outline: none;
+}
+button:active,button:focus
+ {
+  border: 0.25vw solid black;
+    }
+	h1{
+font-family:"Arial Black",sans-serif;
+}
+#cost/*styles the price of the colors*/
+{
+color:#CD2B49;
+font-size:25px;
+font-family:"Arial Black",sans-serif;
+}
+.review/* color code for the reviews*/
+{
+color:#E0DDDD;
+}
+#Colorname{/*Ensures that the color names are capitalized*/
+text-transform:capitalize;
+}
+#COLOR{
+text-transform:capitalize;
+}
+table, th, td {
+  border: 0px;
+  border-spacing: 100px;
+}
+p{/*dictates the style of all p elements*/
+font-family:"Gadget",sans-serif;
+font-size:2vw;
+}
+#color{
+font-size: 16px;
+}
+li {
+  display: inline;
+  font-size: 2vw;/*makes the font size responsive*/
+  margin:10px;
+}
+.form{
+display:inline;
+}
+#b1{/*styles the custom fit button*/
+border-radius: 40%;
+background-color:white;
+padding: 10px 20px;
+color:black;
+border: 1px solid;
+outline: none;
+display:inline;
+font-size: 16px;
+}
+#b2/*styles the Add to cart button*/
+{
+border-radius: 16px;
+background-color: black;
+padding: 10px 100px;
+outline: none;
+display:inline;
+font-size: 16px;
+color:white;
+}
+#pay{
+border-radius: 16px;
+background-color: DeepPink;
+padding: 10px 100px;
+outline: none;
+display:inline;
+font-size: 16px;
+color:white;
+}
+#b3{/*styles the decreament button*/
+background-color:black;
+color:white;
+border-radius: 100%;
+padding: 15px;
+text-align: center;
+font-size: 2vw;
+outline: none;
+}
+#b4{/*styles the increament button*/
+background-color:black;
+color:white;
+border-radius: 50%;
+padding: 15px;
+text-align: center;
+font-size: 2vw;
+outline: none;
+}
+#b5{/*Styles the agree button*/
+background-color:#76F9C2;
+outline: none;
+}
+#b6{/*Styles the cancel button*/
+background-color:#E9989A;
+outline: none;
+}
+#details
+{
+border-top-style:solid;
+border-bottom-style: solid;
+padding:50px;
+width:100%;
+font-size: 2vw; 
+}
+.Needhelp /*creates a drop down menu*/
+{
+  background-color: white;
+  color: black;
+  padding: 16px;
+  font-size: 2vw;
+  border: none;
+  cursor: pointer;
+}
+.Needhelp:active,.Needhelp:focus/*removes the border around need help when clicked*/
+ {
+  border: none;
+    }
+
+.Needhelp2
+ {
+  position: relative;
+  display: inline-block;
+}
+
+.Needhelp-content /*styles the contents of the need help drop down*/
+{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.Needhelp-content a /*styles the links inside the ed help drop down*/
+{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.Needhelp-content a:hover {background-color: white}/*adds a hover effect when you mouse over the elements*/
+
+.Needhelp2:hover .Needhelp-content {
+  display: block;
+}
+
+.Needhelp2:hover .Needhelp {
+  background-color: white;
+}
+#payOut{
+color: Navy;
+}
+</style>
+</head>
+<body>
+
+<div class="container-fluid"><!--provides a responsive fixed width container spanning the entire width of the viewport-->
+<h1>HICKIES Originals</h1>
+ <table><!-- table created to indicate the reviews of the page and the price of the commodity-->
+ <thead>
+      <tr>
+      <th>
+	  <i class="glyphicon glyphicon-star"></i>
+	  <i class="glyphicon glyphicon-star"></i>
+	  <i class="glyphicon glyphicon-star"></i>
+	  <i class="glyphicon glyphicon-star"></i>
+	  <i class="glyphicon glyphicon-star"></i>
+	  </th>
+      <th class ="review" id = "reviw">1,293 reviews</th>
+	  </tr>
+</thead>	
+<tbody>
+	  <tr>
+        <td><p> <span id ="cost">$14.99</span></p></td>
+        <td class ="review">$17.99</td>
+        <td class ="review">25%OFF</td>
+      </tr>
+      <tr>
+        <td>ONLINE EXCLUSIVE</td>
+      </tr>
+    </tbody>
+</table>
+<br>
+<p> COLOR : <span id ="Colorname">Select Item</span></p><!-- color label that indicates the color selected-->
+<script>
+class Item{
+constructor(color,price,review) {
+  this.color = color;	
+  this.price = price;
+  this.review = review;
+}
+getPrice(){
+return this.price;	
+}
+getColor(){
+	return this.color;
+}
+
+}
+var buttons = new Array(18);
+const reviews = ["1,293 reviews","1,200 reviews","1,000 reviews","1,203 reviews","1,005 reviews","293 reviews","103 reviews","100 reviews","1540 reviews","2,000 reviews","1,586 reviews","1,443 reviews","1,513 reviews","1,003 reviews","1,200 reviews","1,203 reviews","1,200 reviews","103 reviews",]
+const Prices = ["14","13","12","12","11","10","10","14","14","16","10","11","13","13","11","17","10","12"];
+var colors = ['Red','Purple','Black','White','Orange','Yellow','Navy','Teal','Khaki','Skyblue','Lime','DeepPink','Peru','LimeGreen','DimGray','DarkGoldenRod','Cyan','Gainsboro'];
+var Items = [
+      new Item("DarkRed",14,"1,293 reviews"),
+      new Item("Purple",13,"1,200 reviews"),
+      new Item("Black",12,"1,000 reviews"),
+      new Item("White",12,"1,203 reviews"),
+	  new Item("Orange",11,"1,005 reviews"),
+	  new Item("Yellow",10,"293 reviews"),
+	  new Item("Navy",10,"103 reviews"),
+	  new Item("Teal",14,"100 reviews"),
+	  new Item("Khaki",14,"1540 reviews"),
+	  new Item("Skyblue",16,"2,000 reviews"),
+	  new Item("Lime",10,"1,586 reviews",),
+	  new Item("DeepPink",11,"1,443 reviews"),
+	  new Item("Peru",13,"1,513 reviews"),
+	  new Item("LimeGreen",13,"1,003 reviews"),
+	  new Item("DimGray",11,"1,200 reviews"),
+	  new Item("DarkGoldenRod",17,"1,203 reviews"),
+	  new Item("Cyan",10,"1,200 reviews"),
+	  new Item("Gainsboro",12,"103 reviews",)
+    ];
+	var clicks = 0;
+function printBtn() {
+  for (var i = 0; i < buttons.length; i++) {
+		buttons[i] = document.createElement("button");
+		buttons[i].style.backgroundColor=Items[i].getColor();//assigns all the buttons created,different colors
+		document.body.appendChild(buttons[i]);//adds the buttons to the html doc
+		//function that ensures that once a button is clicked its name appears on the color label
+		const price = Prices[i];
+		const review = reviews[i];
+		const total = 0;
+		buttons[i].addEventListener("click",Colors);
+		buttons[i].addEventListener("click", function() {
+		document.getElementById("cost").innerHTML = "$"+price+".99";
+		document.getElementById("reviw").innerHTML = review;
+		//total + = clicks*Int(price);
+		//document.getElementById("purchases").innerHTML = total;
+		});
+		function Colors()
+		{
+		document.getElementById("Colorname").innerHTML = event.target.style.backgroundColor;
+		document.getElementById("COLOR").innerHTML = event.target.style.backgroundColor;
+		}
+		buttons[i] = Items[i];
+  }
+  }
+ printBtn();// function call used to print a list of buttons
+
+ function CheckOut()//function that changes the text on the add to cart button
+ {
+ if (clicks>0){
+	document.getElementById("b2").innerHTML = "Check Out";
+	document.getElementById("b2").dataset.target ='#Modal';
+	}
+ }
+ function Increament()//function that increases the number of colors once the increament button is clicked
+ {
+	clicks+=1;
+	document.getElementById("quantity").innerHTML =clicks;
+	document.getElementById("b1").innerHTML =clicks;
+	document.getElementById("No").innerHTML =clicks;
+	document.getElementById("N").innerHTML =clicks;
+ }
+ function Decreament()//function that decreases the number of colors once the decreament button is clicked
+ {
+ if (clicks>0){
+	clicks-=1;
+ }
+	document.getElementById("quantity").innerHTML =clicks;
+	document.getElementById("b1").innerHTML =clicks;
+	document.getElementById("No").innerHTML =clicks;
+	document.getElementById("N").innerHTML =clicks;
+ }
+ /*function Total(){
+ const total = 0;
+ const currentColour= current.style.backgroundColor;
+ const index = colors.indexOf(currentColour);
+ const currentPrice = Items[index].getPrice();
+ total + = clicks*Items[index].getPrice();
+ document.getElementById("purchases").innerHTML =total;*/
+function Close(){
+window.location.reload(true);
+}
+ </script>
+<!--<script src="Shopping cart.js"></script>-->
+</div>
+<div class="container-fluid">
+<br>
+<p class = "quantity">Size Guide</p>
+<br>
+<p class = "quantity"> Your Custom Fit</p>
+  <!-- Trigger the modal with a button -->
+  <div>
+ <button id="b1" type="button" class="btn">0</button>
+ <button id = "b2" type="button" class="btn" data-toggle="modal" data-target="#myModal">Add to Cart</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p class="modal-title">Please add the quantity of the item you have selected</p>
+        </div>
+        <div class="modal-body">
+        <ul><!-- list containing the modal contents-->
+		  <li id = "COLOR">Color</li>
+          <li><button id = "b3" onclick="Decreament()"><i class="glyphicon glyphicon-minus"></i></button></li>
+          <li id = "quantity">0</li>
+          <li><button id = "b4" onclick="Increament()"><i class="glyphicon glyphicon-plus"></i></button></li>
+        </div>
+        <div class="modal-footer">
+          <button id ="b5" type="button" class="btn btn-default" data-dismiss="modal" onclick = "CheckOut()">Agree</button>
+          <button id = "b6" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<div class="container">
+  <!-- Trigger the modal with a button -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="Modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button  type="button" class="close" data-dismiss="modal">&times;</button>
+          <table style="width:100%" id ="payOut">
+		  <tr>
+		  <th><h4 class="modal-title">Cart <span class="price" style="color:black"></span></h4></th>
+		  <th><span id = "No"class="price" style="color:black"><b></b><i class="fa fa-shopping-cart"></i></span></h4></th>
+		</div>
+		</tr>
+		<tr>
+        <div class="modal-body">
+          <td><p><b>Total Number of Purchases :</b></p></td>
+		  <td><p id = "N"><b></b></p></td>
+        </div>
+		</tr>
+        </div>
+		<tr>
+        <div class="modal-body">
+          <td><p id = "purchases"><b>Total Cost:</b></p><td>
+        </div>
+		</tr>
+        </table>
+        <div class="modal-footer">
+        <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+          <button type="button" id = "pay"class="btn btn-default" data-dismiss="modal" onclick = "Close()"><h3>Pay Now</h3></button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="page-header" >
+  <br>
+		<p id = "details"> DETAILS</p>
+		<div id="purchases"></div>
+		</div>
+		
+<div class="Needhelp2"><!--drop down menu containing links that assist the customer incase needed-->
+  <button class="Needhelp">Need Help?</button>
+  <div class="Needhelp-content">
+  <a href="#">FAQ</a>
+  <a href="#">How to order?</a>
+  <a href="#">Payment Policy</a>
+  <a href="#">Shipping Policy</a>
+  <a href="#">Return and Refund Policy</a>
+  <a href="#">Reviews and Quality Guide</a>
+  <a href="#">Using a voucher</a>
+  <a href="#">Contact us</a>
+  
+  </div>
+</div>		
+<p> Shipping & Returns</p>
+</div>
+</body>
+</html>
