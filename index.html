@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<!--Brief summary of all the links to the documents used to create the web page-->
+  <meta name="description" content="Shopping cart">
+  <meta charset="utf-8">
+  <meta name="keywords" content="HTML,CSS,Bootstrap,JavaScript">
+  <!-- -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Shopping cart.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+button {
+ background-color: #4CAF50;
+  border: solid ;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+   outline: none;
+}
+button:active,button:focus
+ {
+  border: 0.25vw solid black;
+    }
+</style>
+</head>
+<body>
+
+<div class="container-fluid"><!--provides a responsive fixed width container spanning the entire width of the viewport-->
+<h1>HICKIES Originals</h1>
+ <table><!-- table created to indicate the reviews of the page and the price of the commodity-->
+ <thead>
+      <tr>
+      <th>
+	  <i class="glyphicon glyphicon-star"></i>
+	  <i class="glyphicon glyphicon-star"></i>
+	  <i class="glyphicon glyphicon-star"></i>
+	  <i class="glyphicon glyphicon-star"></i>
+	  <i class="glyphicon glyphicon-star"></i>
+	  </th>
+      <th class ="review" id = "reviw">1,293 reviews</th>
+	  </tr>
+</thead>	
+<tbody>
+	  <tr>
+        <td><p> <span id ="cost">$0.00</span></p></td>
+        <td class ="review">$17.99</td>
+        <td class ="review">25%OFF</td>
+      </tr>
+      <tr>
+        <td>ONLINE EXCLUSIVE</td>
+      </tr>
+    </tbody>
+</table>
+<br>
+<p> COLOR : <span id ="Colorname">Select Item</span></p><!-- color label that indicates the color selected-->
+<script src="Shopping cart.js"></script>
+</div>
+<div class="container-fluid">
+<br>
+<p class = "quantity">Size Guide</p>
+<br>
+<p class = "quantity"> Your Custom Fit</p>
+  <!-- Trigger the modal with a button -->
+  <div>
+ <button id="b1" type="button" class="btn">0</button>
+ <button id = "b2" type="button" class="btn" data-toggle="modal" data-target="#myModal">Add to Cart</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p class="modal-title">Please add the quantity of the item you have selected</p>
+        </div>
+        <div class="modal-body">
+        <ul><!-- list containing the modal contents-->
+		  <li id = "COLOR">Color</li>
+          <li><button id = "b3" onclick="Decreament()"><i class="glyphicon glyphicon-minus"></i></button></li>
+          <li id = "quantity">0</li>
+          <li><button id = "b4" onclick="Increament()"><i class="glyphicon glyphicon-plus"></i></button></li>
+        </div>
+        <div class="modal-footer">
+          <button id ="b5" type="button" class="btn btn-default" data-dismiss="modal" onclick = "CheckOut()">Agree</button>
+          <button id = "b6" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<div class="container-fluid">
+  <!-- Trigger the modal with a button -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="Modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button  type="button" class="close" data-dismiss="modal">&times;</button>
+          <table style="width:100%" id ="payOut">
+		  <tr>
+		  <th><p class="modal-title">Cart <span class="price" style="color:black"></span></p></th>
+		  <th><span id = "No"class="price" style="color:black"><b></b><i class="glyphicon glyphicon-shopping-cart"></i></span></th>
+		</div>
+		</tr>
+		<tr>
+        <div class="modal-body">
+          <td><p><b>Total Number of Purchases :</b></p></td>
+		  <td><p id = "N"><b></b></p></td>
+        </div>
+		</tr>
+        </div>
+		<tr>
+        <div class="modal-body">
+          <td><p><b>Total Cost of Items : </b></p></td>
+		  <td><b><span id ="purchases"></span></b></td>
+        </div>
+		</tr>
+        </table>
+        <div class="modal-footer">
+        <label for="fname"><p>ACCEPTED CARDS</p></label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+          <button type="button" id = "pay"class="btn btn-default" data-dismiss="modal" onclick = "Close()"><h3>Pay Now</h3></button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <p id = "details"> DETAILS</p>
+  <div id="page" >
+  <br>
+		</div>
+		
+<div class="Needhelp2"><!--drop down menu containing links that assist the customer incase needed-->
+  <button class="Needhelp">Need Help?</button>
+  <div class="Needhelp-content">
+  <a href="#">FAQ</a>
+  <a href="#">How to order?</a>
+  <a href="#">Payment Policy</a>
+  <a href="#">Shipping Policy</a>
+  <a href="#">Return and Refund Policy</a>
+  <a href="#">Reviews and Quality Guide</a>
+  <a href="#">Using a voucher</a>
+  <a href="#">Contact us</a>
+  
+  </div>
+</div>		
+<p> Shipping & Returns</p>
+</div>
+</body>
+</html>
