@@ -1,7 +1,25 @@
-h1{
+button {
+ background-color: #4CAF50;
+  border: solid ;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+   outline: none;
+}
+button:active,button:focus
+ {
+  border: 0.25vw solid black;
+    }
+	h1{
 font-family:"Arial Black",sans-serif;
 }
-#price/*styles the price of the colors*/
+#cost/*styles the price of the colors*/
 {
 color:#CD2B49;
 font-size:25px;
@@ -25,19 +43,6 @@ p{/*dictates the style of all p elements*/
 font-family:"Gadget",sans-serif;
 font-size:2vw;
 }
-button {/*Ensures that the color buttons look alike and are styled similarly*/
- background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 50%;
-}
 #color{
 font-size: 16px;
 }
@@ -46,6 +51,9 @@ li {
   font-size: 2vw;/*makes the font size responsive*/
   margin:10px;
 }
+.form{
+display:inline;
+}
 #b1{/*styles the custom fit button*/
 border-radius: 40%;
 background-color:white;
@@ -53,6 +61,8 @@ padding: 10px 20px;
 color:black;
 border: 1px solid;
 outline: none;
+display:inline;
+font-size: 16px;
 }
 #b2/*styles the Add to cart button*/
 {
@@ -60,6 +70,18 @@ border-radius: 16px;
 background-color: black;
 padding: 10px 100px;
 outline: none;
+display:inline;
+font-size: 16px;
+color:white;
+}
+#pay{
+border-radius: 16px;
+background-color: DeepPink;
+padding: 10px 100px;
+outline: none;
+display:inline;
+font-size: 16px;
+color:white;
 }
 #b3{/*styles the decreament button*/
 background-color:black;
@@ -142,3 +164,18 @@ font-size: 2vw;
 .Needhelp2:hover .Needhelp {
   background-color: white;
 }
+#payOut{
+color: Navy;
+}
+
+
+
+
+
+
+
+
+
+
+
+
